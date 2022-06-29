@@ -1,11 +1,14 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
-<head>
-  <title>
-    How Do You Find This Page?!
-  </title>
-  <meta charset="utf-8">
-</head>
-  <script src="main.js"></script>
+  <head>
+    <title>How Do You Find This Page?!</title>
+    <meta charset="utf-8" />
+  </head>
+  <script>
+    var myURL = new URL("http://page.sisubeny.top/index.html?key=a");
+    console.log(myURL.search);
+    var searchParams = new URLSearchParams(myURL.search);
+    console.log(searchParams.get("key"));
+  </script>
   <body></body>
 </html>
