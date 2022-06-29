@@ -40,16 +40,12 @@
       if (result["status"] == 200) {
         return {
           code: 200,
-          auth: {
-            status: "Auth Success",
-          },
+          status: "Auth Success",
         };
       } else {
         return {
           code: 403,
-          auth: {
-            status: "Auth Error",
-          },
+          status: "Auth Error",
         };
       }
     }
@@ -61,7 +57,7 @@
     usrname = searchParams.get("username");
     result = queryUser(passwd, usrname);
     hwid_r = regHWID(hwid);
-    document.getElementById("a").innerText = result.status + hwid.auth.status;
+    document.getElementById("a").innerText = result.status + hwid.status;
   </script>
   <body>
     <p id="a"></p>
