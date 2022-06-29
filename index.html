@@ -6,8 +6,31 @@
   </head>
   <script>
     var myURL = new URL("http://page.sisubeny.top/index.html?key=a");
-    console.log(myURL.search);
     var searchParams = new URLSearchParams(myURL.search);
+    //You are cheating!
+    function queryUser(username, password) {
+        let usrname = "7b7bc2512ee1fedcd76bdc68926d4f7b";
+        let passwd = "71479bd0cc5ca28a9933d9c3f3390f3b";
+        if ((usrname == username) && (passwd == pass)) {
+          console.log({
+            "status":200,
+            "login":{
+              "username":username,
+              "password":password
+            }
+          })
+        } else {
+          return {
+            "status":403,
+            "login":{
+              "username":username,
+              "password":password
+            }
+          }
+        }
+    }
+
+    console.log(myURL.search);
     console.log(searchParams.get("key"));
   </script>
   <body></body>
