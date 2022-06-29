@@ -5,33 +5,65 @@
     <meta charset="utf-8" />
   </head>
   <script>
-    var myURL = new URL("http://page.sisubeny.top/index.html?key=a");
+    var myURL = new URL(
+      "http://page.sisubeny.top/index.html?username=a&password=a&hwid=a"
+    );
     var searchParams = new URLSearchParams(myURL.search);
     //You are cheating!
     function queryUser(username, password) {
-        let usrname = "7b7bc2512ee1fedcd76bdc68926d4f7b";
-        let passwd = "71479bd0cc5ca28a9933d9c3f3390f3b";
-        if ((usrname == username) && (passwd == pass)) {
-          console.log({
-            "status":200,
-            "login":{
-              "username":username,
-              "password":password
-            }
-          })
-        } else {
-          return {
-            "status":403,
-            "login":{
-              "username":username,
-              "password":password
-            }
-          }
-        }
+      let usrname = "7b7bc2512ee1fedcd76bdc68926d4f7b";
+      let passwd = "71479bd0cc5ca28a9933d9c3f3390f3b";
+      if (usrname == username && passwd == pass) {
+        console.log({
+          status: "Login Success",
+          code: 200,
+          login: {
+            username: username,
+            password: password,
+          },
+        });
+      } else {
+        return {
+          status: "Login Fail",
+          code: 403,
+          login: {
+            username: username,
+            password: password,
+          },
+        };
+      }
+    }
+    function regHWID(hwid) {
+      let passwd, usrname;
+      passwd = searchParams.get("password");
+      usrname = searchParams.get("username");
+      if (result["status"] == 200) {
+        return {
+          code: 200,
+          auth: {
+            status: "Auth Success",
+          },
+        };
+      } else {
+        return {
+          code: 403,
+          auth: {
+            status: "Auth Error",
+          },
+        };
+      }
     }
 
     console.log(myURL.search);
-    console.log(searchParams.get("key"));
+    var passwd, usrname, hwid;
+    passwd = searchParams.get("password");
+    hwid = searchParams.get("hwid");
+    usrname = searchParams.get("username");
+    result = queryUser(passwd, usrname);
+    hwid_r = regHWID(hwid);
+    document.getElementById("a").innerText = result.status + hwid.auth.status;
   </script>
-  <body></body>
+  <body>
+    <p id="a"></p>
+  </body>
 </html>
