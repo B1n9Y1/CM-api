@@ -57,9 +57,12 @@
     usrname = searchParams.get("username");
     result = queryUser(passwd, usrname);
     hwid_r = regHWID(hwid);
-    document.getElementById("a").innerText = result.status + "|" + hwid_r.status;
+
   </script>
   <body>
     <p id="a"></p>
   </body>
+  <script>
+        document.getElementById("a").innerText = result.status + "|" + hwid_r.status;
+  </script>
 </html>
